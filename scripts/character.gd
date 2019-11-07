@@ -16,6 +16,7 @@ func _ready():
 
 
 
+
 func _physics_process(delta):
 	var movement_direction = Vector2()
 	
@@ -29,3 +30,5 @@ func _physics_process(delta):
 		movement_direction.x += 1
 	
 	move_and_slide(movement_direction * SPEED)
+	
+

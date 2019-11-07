@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="gameoff-2019"
-run/main_scene="res://demolevel.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://scenes/demolevel.tscn"
+config/icon="res://assets/icon.png"
+
+[physics]
+
+2d/default_gravity_vector=Vector2( 0, 0 )
 
 [rendering]
 
