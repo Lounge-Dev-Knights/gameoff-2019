@@ -14,10 +14,10 @@ func _ready():
 
 
 func _on_lilipad_body_entered(body):
-	print("noob")
-	pass # Replace with function body.
+	body.set_collision_mask_bit(10, false)
+	print("entered")
 
 
 func _on_lilipad_body_exited(body):
-	print("noob too")
-	pass # Replace with function body.
+	body.set_collision_mask_bit(10, true)
+	print("exited")

@@ -1,19 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/lilipad.gd" type="Script" id=1]
 [ext_resource path="res://assets/lilipad.png" type="Texture" id=2]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 45.0
-
 [node name="lilipad" type="Area2D"]
-position = Vector2( 259.832, 190.453 )
+priority = 1.0
 script = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
 
 [node name="lilipad" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0.315842, 0.212021 )
+scale = Vector2( 0.94246, 0.936377 )
+polygon = PoolVector2Array( 13.1591, 36.2592, 3.09315, 37.6663, -3.89709, 41.8877, -18.4368, 40.4806, -26.825, 36.8221, -34.0949, 14.5894, -38.8482, -8.20604, -33.256, -20.8702, -26.2658, -21.433, -9.48927, -35.2229, 6.72807, -36.0672, 24.0638, -30.1572, 31.0541, -20.3073, 33.2909, -6.51748, 33.8502, 13.1823, 30.4948, 21.9065, 18.192, 17.9665, 12.5998, 20.4994, 13.1591, 33.445 )
 [connection signal="body_entered" from="." to="." method="_on_lilipad_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_lilipad_body_exited"]

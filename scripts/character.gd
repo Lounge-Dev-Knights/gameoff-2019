@@ -6,6 +6,10 @@ const MAX_SPEED = 200
 # current jumping speed
 var jump_speed = 0
 
+var alive = true
+
+#var default_collision_mask
+
 # enum JumpStates {
 # 	NONE,
 # 	JUMPING,
@@ -23,16 +27,23 @@ func _notification(what):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	#default_collision_mask = collision_mask
+	#pass # Replace with function body.
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
+func reset():
+	pass
+
 
 
 
 func _physics_process(delta):
+	if !alive:
+		return
 	# handle jumping state or new jump action
 	var is_jumping = handle_jump_state()
 	
@@ -77,12 +88,18 @@ func handle_jump_state():
 		# reset sprite position and jumping speed when jump has ended
 		jump_speed = 0
 		sprite.position.y = 0
-		set_collision_mask_bit(0, true)
+		
+		# disable collision while jumping
+		collision_shape.disabled = false
+		
+		#set_collision_mask_bit(0, true)
 	
 	if (Input.is_action_pressed("jump") and sprite.position.y == 0):
 		# start jump
 		# disable collision
-		set_collision_mask_bit(0, false)
+		# TODO what to do with shapes that cant be jumped over...
+		collision_shape.disabled = true
+		#set_collision_mask_bit(0, false)
 		# set jumping speed
 		jump_speed = 15
 	
