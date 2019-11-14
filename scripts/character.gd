@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 # maximal movement speed
-const MAX_SPEED = 10000
+const MAX_SPEED = 200
 
 # current jumping speed
 var jump_speed = 0
@@ -12,7 +12,9 @@ var jump_speed = 0
 # 	LANDING
 # }
 
-
+func _notification(what):
+	if what == 1:
+		print('i won')
 # var jump_state = JumpStates.NONE
 
 # func is_jumping():
@@ -32,7 +34,7 @@ func _ready():
 
 func _physics_process(delta):
 	# handle jumping state or new jump action
-	handle_jump_state()
+	var is_jumping = handle_jump_state()
 	
 	# evaluate and apply movement direction
 	var movement_direction = Vector2()
@@ -47,7 +49,8 @@ func _physics_process(delta):
 		movement_direction.x += 1
 	
 	# TODO acceleration and deceleration
-	move_and_slide(movement_direction.normalized() * MAX_SPEED * delta)
+	move_and_slide(movement_direction.normalized() * MAX_SPEED)
+	
 	
 	
 
@@ -83,3 +86,9 @@ func handle_jump_state():
 		# set jumping speed
 		jump_speed = 10
 	
+	# return true if the character is jumping, or false if on ground
+	return sprite.position.y > 0
+	
+
+func win():
+	print('i won')
