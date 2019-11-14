@@ -1,48 +1,53 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/icon.png" type="Texture" id=2]
+[ext_resource path="res://scenes/tilemap.tres" type="TileSet" id=3]
+[ext_resource path="res://scenes/Area2D.gd" type="Script" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 1.0
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=4]
+radius = 13.9611
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 14.3877, 195.096 )
+extents = Vector2( 20, 20 )
 
-[node name="Node2D" type="Node2D"]
+[node name="demolevel" type="Node2D"]
 
-[node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
+[node name="character" parent="." instance=ExtResource( 1 )]
 position = Vector2( 437.588, 278.92 )
+collision_mask = 3
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2( 560.691, 337.531 )
+[node name="godot" type="RigidBody2D" parent="."]
+position = Vector2( 450.691, 249.531 )
+collision_mask = 3
 physics_material_override = SubResource( 1 )
 
-[node name="icon" type="Sprite" parent="RigidBody2D"]
+[node name="icon" type="Sprite" parent="godot"]
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource( 2 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="godot"]
+shape = SubResource( 4 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 50, 50 )
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 131073, 0, 0, 131084, 0, 0, 131085, 0, 0, 196609, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196621, 0, 0, 262145, 0, 0, 262154, 0, 0, 262155, 0, 0, 262157, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327690, 0, 0, 327693, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393228, 0, 0, 393229, 0, 0 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 370.576, 318.869 )
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 541.988, 125.616 )
+script = ExtResource( 4 )
+
+[node name="Line2D" type="Line2D" parent="Area2D"]
+points = PoolVector2Array( -20, 20, -20, -20, 20, -20, 20, 20, -20, 20 )
+width = 1.0
+texture_mode = 3080292
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 3 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 556.026, 126.421 )
-rotation = 1.58897
-shape = SubResource( 3 )
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 545.529, 500.82 )
-rotation = 1.50609
-shape = SubResource( 3 )
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 742.642, 317.703 )
-shape = SubResource( 3 )
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
