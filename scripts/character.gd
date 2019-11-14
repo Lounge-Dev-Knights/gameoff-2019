@@ -84,7 +84,7 @@ func handle_jump_state():
 		# disable collision
 		set_collision_mask_bit(0, false)
 		# set jumping speed
-		jump_speed = 10
+		jump_speed = 15
 	
 	# return true if the character is jumping, or false if on ground
 	return sprite.position.y > 0

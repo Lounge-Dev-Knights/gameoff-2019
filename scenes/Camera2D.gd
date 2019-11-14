@@ -1,4 +1,4 @@
-extends Area2D
+extends Camera2D
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -11,13 +11,4 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-
-func _on_lilipad_body_entered(body):
-	print("noob")
-	pass # Replace with function body.
-
-
-func _on_lilipad_body_exited(body):
-	print("noob too")
-	pass # Replace with function body.
+align (
