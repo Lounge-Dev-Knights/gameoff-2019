@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/lilipad.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1000, 300 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="water" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="water"]
+position = Vector2( 1000, 300 )
+shape = SubResource( 1 )
+
+[node name="character" parent="." instance=ExtResource( 1 )]
+position = Vector2( 200, 0 )
+scale = Vector2( 2, 2 )
+
+[node name="Camera2D" type="Camera2D" parent="character"]
+scale = Vector2( 0.5, 0.5 )
+current = true
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+
+[node name="Lillipads" type="Area2D" parent="."]
+scale = Vector2( 2, 1 )
+
+[node name="lilipad" parent="Lillipads" instance=ExtResource( 2 )]
+position = Vector2( 131.839, 104.041 )
+
+[node name="lilipad2" parent="Lillipads" instance=ExtResource( 2 )]
+position = Vector2( 318.871, 164.351 )
+
+[node name="lilipad3" parent="Lillipads" instance=ExtResource( 2 )]
+position = Vector2( 143.492, 281.149 )
+rotation = 0.785398
+scale = Vector2( 2, 2 )
+
+[node name="lilipad4" parent="Lillipads" instance=ExtResource( 2 )]
+position = Vector2( 299.972, 335.742 )
+rotation = 0.785398
+
+[node name="lilipad5" parent="Lillipads" instance=ExtResource( 2 )]
+position = Vector2( 225.703, 437.086 )
+rotation = 1.5708
+
+[node name="lilipad6" parent="Lillipads" instance=ExtResource( 2 )]
+position = Vector2( 343.459, 489.587 )
+rotation = 2.30907
+
+[node name="lilipad7" parent="Lillipads" instance=ExtResource( 2 )]
+position = Vector2( 454.496, 395.206 )
+rotation = 4.21322
+
+[node name="lilipad8" parent="Lillipads" instance=ExtResource( 2 )]
+position = Vector2( 420.785, 286.981 )
+rotation = -1.49924
+
+[node name="lilipad9" parent="Lillipads" instance=ExtResource( 2 )]
+position = Vector2( 471.152, 167.579 )
+rotation = 0.506145
+
+[node name="lilipad10" parent="Lillipads" instance=ExtResource( 2 )]
+position = Vector2( 593.292, 208.293 )
+rotation = 1.54636
+
+[node name="lilipad11" parent="Lillipads" instance=ExtResource( 2 )]
+position = Vector2( 630.11, 332.187 )
+rotation = 5.49779
+
+[node name="lilipad12" parent="Lillipads" instance=ExtResource( 2 )]
+position = Vector2( 737.641, 354.492 )
+rotation = 3.831
+
+[node name="lilipad13" parent="Lillipads" instance=ExtResource( 2 )]
+position = Vector2( 848.678, 308.227 )
+rotation = 2.68955
+
+[node name="lilipad14" parent="Lillipads" instance=ExtResource( 2 )]
+position = Vector2( 927.57, 223.098 )
+rotation = 0.404916
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
