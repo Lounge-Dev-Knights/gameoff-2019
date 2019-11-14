@@ -19,10 +19,6 @@ config/name="gameoff-2019"
 run/main_scene="res://scenes/demolevel.tscn"
 config/icon="res://assets/icon.png"
 
-[autoload]
-
-newgame="*res://scenes/newgame.gd"
-
 [input]
 
 jump={

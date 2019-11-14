@@ -22,7 +22,7 @@ func _ready():
 
 
 func _on_water_body_entered(body):
-	$Timer.start(.1)
+	$Timer.start(.05)
 	pass # Replace with function body.
 
 
