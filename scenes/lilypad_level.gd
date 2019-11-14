@@ -5,6 +5,12 @@ extends Node2D
 # var a = 2
 # var b = "text"
 
+func reset():
+	
+	$character/Camera2D/Panel.visible = false
+	
+	$character.alive = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Timer.connect("timeout", self, "gameover")
@@ -26,6 +32,13 @@ func _on_water_body_exited(body):
 
 func gameover():
 	$Timer.stop()
-	$GameOverLabel.visible = true
+	$character/Camera2D/Panel.visible = true
+	$character.alive = false
+	$character.reset()
 	
 	print("gameover")
+
+
+func _on_Button_pressed():
+	reset()
+	pass # Replace with function body.

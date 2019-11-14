@@ -6,6 +6,8 @@ const MAX_SPEED = 200
 # current jumping speed
 var jump_speed = 0
 
+var alive = true
+
 #var default_collision_mask
 
 # enum JumpStates {
@@ -33,10 +35,15 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func reset():
+	pass
+
 
 
 
 func _physics_process(delta):
+	if !alive:
+		return
 	# handle jumping state or new jump action
 	var is_jumping = handle_jump_state()
 	
@@ -82,6 +89,7 @@ func handle_jump_state():
 		jump_speed = 0
 		sprite.position.y = 0
 		
+		# disable collision while jumping
 		collision_shape.disabled = false
 		
 		#set_collision_mask_bit(0, true)
@@ -89,10 +97,11 @@ func handle_jump_state():
 	if (Input.is_action_pressed("jump") and sprite.position.y == 0):
 		# start jump
 		# disable collision
+		# TODO what to do with shapes that cant be jumped over...
 		collision_shape.disabled = true
 		#set_collision_mask_bit(0, false)
 		# set jumping speed
-		jump_speed = 10
+		jump_speed = 15
 	
 	# return true if the character is jumping, or false if on ground
 	return sprite.position.y > 0
