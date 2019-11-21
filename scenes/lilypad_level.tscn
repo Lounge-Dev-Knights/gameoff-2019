@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/lilypad_level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/water.gd" type="Script" id=2]
 [ext_resource path="res://scenes/character.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/lilipad.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/fish.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1000, 300 )
@@ -17,10 +18,11 @@ collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="water"]
-position = Vector2( 1000, 300 )
+position = Vector2( 973.937, 326.595 )
 shape = SubResource( 1 )
 
 [node name="character" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
 position = Vector2( 184.912, 256.736 )
 
 [node name="Camera2D" type="Camera2D" parent="character"]
@@ -95,7 +97,6 @@ rotation = 0.506145
 [node name="lilipad10" parent="Lillipads" instance=ExtResource( 4 )]
 position = Vector2( 593.292, 208.293 )
 rotation = 1.54636
-scale = Vector2( 1, 1 )
 
 [node name="lilipad11" parent="Lillipads" instance=ExtResource( 4 )]
 position = Vector2( 630.11, 332.187 )
@@ -112,6 +113,11 @@ rotation = 2.68955
 [node name="lilipad14" parent="Lillipads" instance=ExtResource( 4 )]
 position = Vector2( 927.57, 223.098 )
 rotation = 0.404916
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="fish" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 306.12, 214.894 )
 [connection signal="body_entered" from="water" to="." method="_on_water_body_entered"]
 [connection signal="body_exited" from="water" to="." method="_on_water_body_exited"]
 [connection signal="pressed" from="character/Camera2D/Panel/Button" to="." method="_on_Button_pressed"]
