@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+
 # maximal movement speed
 const MAX_SPEED = 200
 
@@ -109,3 +110,6 @@ func handle_jump_state():
 
 func win():
 	print('i won')
+	
+func get_hit():
+	alive = false

@@ -56,7 +56,6 @@ text = "retry"
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Lillipads" type="Node2D" parent="."]
-editor/display_folded = true
 scale = Vector2( 2, 1 )
 
 [node name="lilipad" parent="Lillipads" instance=ExtResource( 4 )]
@@ -117,7 +116,28 @@ rotation = 0.404916
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="fish" parent="Node2D" instance=ExtResource( 5 )]
-position = Vector2( 306.12, 214.894 )
+position = Vector2( 261.054, 102.866 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="fish4" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 948.402, 160.145 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="fish6" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 1696.61, 307.066 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="fish5" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 841.38, 282.24 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="fish3" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 455.501, 434.482 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="fish7" parent="Node2D" instance=ExtResource( 5 )]
+position = Vector2( 599.146, 333.807 )
+scale = Vector2( 0.5, 0.5 )
 [connection signal="body_entered" from="water" to="." method="_on_water_body_entered"]
 [connection signal="body_exited" from="water" to="." method="_on_water_body_exited"]
 [connection signal="pressed" from="character/Camera2D/Panel/Button" to="." method="_on_Button_pressed"]
