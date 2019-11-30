@@ -10,20 +10,23 @@ var alive = true
 
 #var default_collision_mask
 
-# enum JumpStates {
-# 	NONE,
-# 	JUMPING,
-# 	LANDING
-# }
+enum JumpStates {
+	NONE,
+	JUMPING_UP,
+	LANDING
+}
+
+
+var jump_state = JumpStates.NONE
+
+func is_jumping():
+	return jump_state != JumpStates.NONE
+
+
 
 func _notification(what):
 	if what == 1:
 		print('i won')
-# var jump_state = JumpStates.NONE
-
-# func is_jumping():
-# 	return jump_state != JumpStates.NONE
-# 	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,7 +48,7 @@ func _physics_process(delta):
 	if !alive:
 		return
 	# handle jumping state or new jump action
-	var is_jumping = handle_jump_state()
+	
 	
 	# evaluate and apply movement direction
 	var movement_direction = Vector2()
@@ -58,10 +61,23 @@ func _physics_process(delta):
 		movement_direction.x -= 1
 	if Input.is_action_pressed("move_right"):
 		movement_direction.x += 1
+		
+	if movement_direction.x > 0:
+		$sprite.flip_h = false
+	elif movement_direction.x < 0:
+		$sprite.flip_h = true
 	
 	# TODO acceleration and deceleration
 	move_and_slide(movement_direction.normalized() * MAX_SPEED)
 	
+	if handle_jump_state():
+		$collision_shape.disabled = true
+	else:
+		$collision_shape.disabled = false
+		if movement_direction.length() > 0:
+			$sprite.play("walk")
+		else:
+			$sprite.play("default")
 	
 	
 
@@ -77,35 +93,39 @@ func handle_jump_state():
 	var sprite = get_node("sprite")
 	var collision_shape = get_node("collision_shape")
 	
+	
+	match jump_state:
+		JumpStates.JUMPING_UP:
+			jump_speed -= 1
+			
+			sprite.play("jump_up")
+			if jump_speed < 0:
+				jump_state = JumpStates.LANDING
+				
+		JumpStates.LANDING:
+			sprite.play("jump_down")
+			
+			jump_speed -= 1
+			
+			if (sprite.position.y > 0):
+				jump_state = JumpStates.NONE
+				sprite.position.y = 0
+				jump_speed = 0
+				
+				
+		JumpStates.NONE:
+			if Input.is_action_pressed("jump"):
+				# start jump
+				jump_speed = 15
+				jump_state = JumpStates.JUMPING_UP
+				
 	if (jump_speed != 0):
 		# move sprite according to current jumping speed
 		sprite.move_local_y(-jump_speed)
 	
-	if (sprite.position.y < 0):
-		# decelerate jumping speed into falling
-		jump_speed -= 1
-	elif jump_speed != 0:
-		# reset sprite position and jumping speed when jump has ended
-		jump_speed = 0
-		sprite.position.y = 0
-		
-		# disable collision while jumping
-		collision_shape.disabled = false
-		
-		#set_collision_mask_bit(0, true)
-	
-	if (Input.is_action_pressed("jump") and sprite.position.y == 0):
-		# start jump
-		# disable collision
-		# TODO what to do with shapes that cant be jumped over...
-		collision_shape.disabled = true
-		#set_collision_mask_bit(0, false)
-		# set jumping speed
-		jump_speed = 15
 	
 	# return true if the character is jumping, or false if on ground
-	return sprite.position.y > 0
-	
+	return is_jumping()
 
 func win():
 	print('i won')

@@ -95,7 +95,6 @@ rotation = 0.506145
 [node name="lilipad10" parent="Lillipads" instance=ExtResource( 4 )]
 position = Vector2( 593.292, 208.293 )
 rotation = 1.54636
-scale = Vector2( 1, 1 )
 
 [node name="lilipad11" parent="Lillipads" instance=ExtResource( 4 )]
 position = Vector2( 630.11, 332.187 )
