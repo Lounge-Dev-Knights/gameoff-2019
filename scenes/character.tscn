@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/character.gd" type="Script" id=1]
 [ext_resource path="res://assets/1.png" type="Texture" id=2]
@@ -30,9 +30,6 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 24.8137
-
 [node name="character" type="KinematicBody2D"]
 z_index = 1
 collision_layer = 0
@@ -44,5 +41,5 @@ scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 1 )
 animation = "walk"
 
-[node name="collision_shape" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+[node name="collision_shape" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -17.3922, 12.4487, -13.3301, 7.81973, -3.3164, 6.59163, 10.0981, 6.11929, 23.1348, 8.95335, 25.3076, 15.3772, 18.6948, 16.7942, 5.84705, 18.5891, -5.01683, 19.9117, -15.5028, 18.2113 )
