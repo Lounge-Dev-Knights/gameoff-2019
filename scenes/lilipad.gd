@@ -1,4 +1,5 @@
 extends Area2D
+export var type = 0
 
 # Declare member variables here. Examples:
 # var a = 2
