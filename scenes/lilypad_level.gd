@@ -1,19 +1,36 @@
 extends Node2D
 
+var gameover = false
+
+
+func _process(delta):
+	if !$character.alive && !gameover:
+		gameover()
+		
+	if gameover != true:
+		$character/Camera2D/Panel.visible = false
+	else:
+		$character/Camera2D/Panel.visible = true
+	
+
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
 func reset():
-	
-	$character/Camera2D/Panel.visible = false
-	
+	gameover = false
+	$character.reset()
 	$character.alive = true
+	# todo exit lilypad before reset
+	$character.position.x = 150
+	$character.position.y = 280
+	$character.set_collision_mask_bit(10, false)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Timer.connect("timeout", self, "gameover")
+	reset()
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,7 +39,7 @@ func _ready():
 
 
 func _on_water_body_entered(body):
-	$Timer.start(.05)
+	$Timer.start(.1)
 	pass # Replace with function body.
 
 
@@ -32,9 +49,8 @@ func _on_water_body_exited(body):
 
 func gameover():
 	$Timer.stop()
-	$character/Camera2D/Panel.visible = true
+	gameover = true
 	$character.alive = false
-	$character.reset()
 	
 	print("gameover")
 

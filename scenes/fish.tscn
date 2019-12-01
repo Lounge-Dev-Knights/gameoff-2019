@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/fish.gd" type="Script" id=1]
+[ext_resource path="res://assets/fish_up.png" type="Texture" id=2]
+[ext_resource path="res://assets/fish_down.png" type="Texture" id=3]
+[ext_resource path="res://assets/fish_ground.png" type="Texture" id=4]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 24.2581, 0, -24.2581, -233.05, -3.24977, -68.3381, 1.47019, 68.3381, -1.47019, -117.433, -135.763, -18.569, 0.397215, 18.569, -0.397215, 0.600342, -3.29976, -79.6106, 0, 79.6106, 0, 112.51, -135.413, 0, 0, 0, 0, 205.801, -4.24977, 0, 0, 0, 0, 220.5, 151.453, 0, 0, 0, 0, 299.851, 151.55, 0, 0, 0, 0, 366.351, 160.1, 0, 0, 0, 0, 434.751, 186.7, 0, 0, 0, 0, 487.951, 193.35, 0, 0, 0, 0, 622.346, 189.82, 0, 0, 0, 0, 793.538, 187.303, 0, 0, 0, 0, 937.037, 217.513, 0, 0, 0, 0, 1118.3, 222.548, 0, 0, 0, 0, 1135.92, 220.031, 0, 0, 0, 0, 1319.87, 187.845, 0, 0, 0, 0, 1432.23, 145.709, 0, 0, 0, 0, 1481.39, 54.414, 0, 0, 0, 0, 1510.13, 24.6318, 0, 0, 0, 0, 1584.75, 27.5579 )
+}
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "jump",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "hit_ground",
+"speed": 5.0
+} ]
+
+[node name="fish" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2( -0.640854, 0 )
+scale = Vector2( 1.0004, 1 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 22.8559, -44.4714 )
+rotation = -1.18711
+offset = 421.008
+
+[node name="sprite" type="AnimatedSprite" parent="Path2D/PathFollow2D"]
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 2 )
+animation = "jump"
+
+[node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Path2D/PathFollow2D/Area2D"]
+position = Vector2( -4.22086, -1.24724 )
+scale = Vector2( 2, 2 )
+polygon = PoolVector2Array( -43.5169, 43.202, -54.6528, -11.973, -30.024, -16.193, -10.9084, -27.2595, 17.9821, -43.9401, 61.6147, -36.9407, 59.5531, 5.34901, 35.6129, 17.5198, 7.61933, 21.2108 )
+[connection signal="body_entered" from="Path2D/PathFollow2D/Area2D" to="." method="_on_Area2D_body_entered"]
