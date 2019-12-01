@@ -1,12 +1,27 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/fish.gd" type="Script" id=1]
-[ext_resource path="res://assets/fish.png" type="Texture" id=2]
+[ext_resource path="res://assets/fish_up.png" type="Texture" id=2]
+[ext_resource path="res://assets/fish_down.png" type="Texture" id=3]
+[ext_resource path="res://assets/fish_ground.png" type="Texture" id=4]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -233.05, -3.24977, 0, 0, 0, 0, -209.35, -66.9498, 0, 0, 0, 0, -195.1, -95.4499, 0, 0, 0, 0, -173.25, -116.35, 0, 0, 0, 0, -148.55, -128.7, 0, 0, 0, 0, -116.25, -137.25, 0, 0, 0, 0, -72.5497, -139.15, 0, 0, 0, 0, -52.5997, -129.65, 0, 0, 0, 0, -35.4997, -119.2, 0, 0, 0, 0, -25.0497, -98.2999, 0, 0, 0, 0, -15.5497, -70.7498, 0, 0, 0, 0, -6.99966, -36.5498, 0, 0, 0, 0, 0.600342, -3.29976, 0, 0, 0, 0, 10.1503, -34.5998, 0, 0, 0, 0, 19.6503, -51.6998, 0, 0, 0, 0, 32.9503, -78.2999, 0, 0, 0, 0, 52.9003, -106.8, 0, 0, 0, 0, 82.3503, -122.95, 0, 0, 0, 0, 108, -128.65, 0, 0, 0, 0, 142.2, -127.7, 0, 0, 0, 0, 176.4, -110.6, 0, 0, 0, 0, 192.501, -75.4998, 0, 0, 0, 0, 198.201, -46.0498, 0, 0, 0, 0, 205.801, -4.24977, 0, 0, 0, 0, 210.551, 17.6003, 0, 0, 0, 0, 221.951, 67.0003, 0, 0, 0, 0, 271.351, 105, 0, 0, 0, 0, 299.851, 151.55, 0, 0, 0, 0, 366.351, 160.1, 0, 0, 0, 0, 434.751, 186.7, 0, 0, 0, 0, 487.951, 193.35, 0, 0, 0, 0, 622.346, 189.82, 0, 0, 0, 0, 793.538, 187.303, 0, 0, 0, 0, 937.037, 217.513, 0, 0, 0, 0, 1118.3, 222.548, 0, 0, 0, 0, 1135.92, 220.031, 0, 0, 0, 0, 1319.87, 187.845, 0, 0, 0, 0, 1432.23, 145.709, 0, 0, 0, 0, 1481.39, 54.414, 0, 0, 0, 0, 1510.13, 24.6318, 0, 0, 0, 0, 1584.75, 27.5579 )
 }
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "jump",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "hit_ground",
+"speed": 5.0
+} ]
 
 [node name="fish" type="Node2D"]
 script = ExtResource( 1 )
@@ -15,15 +30,18 @@ script = ExtResource( 1 )
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 1183.68, 211.674 )
-rotation = -0.173231
-offset = 1835.12
+position = Vector2( -233.05, -3.24977 )
+rotation = -1.21461
 
-[node name="sprite" type="Sprite" parent="Path2D/PathFollow2D"]
-texture = ExtResource( 2 )
+[node name="sprite" type="AnimatedSprite" parent="Path2D/PathFollow2D"]
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 2 )
+animation = "jump"
 
 [node name="Area2D" type="Area2D" parent="Path2D/PathFollow2D"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Path2D/PathFollow2D/Area2D"]
-polygon = PoolVector2Array( -22.3879, -2.30194, -44.7914, 18.74, -43.8993, -29.156, -19.1561, -8.289, 1.17371, -22.8293, 25.4546, -26.0692, 40.7593, -6.54181, 45.3616, 11.737, 35.6129, 17.5198, 7.29761, 13.5013, -17.9905, -2.46857 )
+position = Vector2( -4.22086, -1.24724 )
+scale = Vector2( 2, 2 )
+polygon = PoolVector2Array( -43.5169, 43.202, -54.6528, -11.973, -30.024, -16.193, -10.9084, -27.2595, 17.9821, -43.9401, 61.6147, -36.9407, 59.5531, 5.34901, 35.6129, 17.5198, 7.61933, 21.2108 )
 [connection signal="body_entered" from="Path2D/PathFollow2D/Area2D" to="." method="_on_Area2D_body_entered"]

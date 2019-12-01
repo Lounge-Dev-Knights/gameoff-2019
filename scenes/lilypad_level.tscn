@@ -28,8 +28,7 @@ position = Vector2( 973.937, 326.595 )
 shape = SubResource( 1 )
 
 [node name="character" parent="." instance=ExtResource( 3 )]
-editor/display_folded = true
-position = Vector2( 184.912, 256.736 )
+position = Vector2( 148.358, 267.45 )
 
 [node name="Camera2D" type="Camera2D" parent="character"]
 scale = Vector2( 0.5, 0.5 )
@@ -103,10 +102,6 @@ position = Vector2( 291.582, 188.356 )
 position = Vector2( 132.142, 105.321 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="fish4" parent="Node2D" instance=ExtResource( 6 )]
-position = Vector2( 143.006, 282.919 )
-scale = Vector2( 0.7, 0.7 )
-
 [node name="fish6" parent="Node2D" instance=ExtResource( 6 )]
 position = Vector2( 460.262, 387.429 )
 scale = Vector2( 0.7, 0.7 )
@@ -118,6 +113,10 @@ scale = Vector2( 0.7, 0.7 )
 [node name="fish3" parent="Node2D" instance=ExtResource( 6 )]
 position = Vector2( 474.981, 159.811 )
 scale = Vector2( 0.5, 0.5 )
+
+[node name="fish4" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 291.492, 183.066 )
+scale = Vector2( -0.5, 0.5 )
 
 [node name="fish7" parent="Node2D" instance=ExtResource( 6 )]
 position = Vector2( 634.146, 330.807 )

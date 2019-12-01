@@ -16,12 +16,20 @@ func _ready():
 
 const speed = 100
 func _physics_process(delta):
-	$Path2D/PathFollow2D
+	
+	$Path2D/PathFollow2D/Area2D/CollisionPolygon2D.disabled = true
+	
 	$Path2D/PathFollow2D.offset = $Path2D/PathFollow2D.offset + 200 * delta
 	if ($Path2D/PathFollow2D.position.y > 0):
 		visible = false;
 	else:
 		visible = true
+		
+		if $Path2D/PathFollow2D.position.y < -120:
+			$Path2D/PathFollow2D/sprite.play("jump")
+		else:
+			$Path2D/PathFollow2D/sprite.play("hit_ground")
+			$Path2D/PathFollow2D/Area2D/CollisionPolygon2D.disabled = false
 	pass
 	
 	

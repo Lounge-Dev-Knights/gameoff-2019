@@ -112,10 +112,11 @@ func handle_jump_state():
 				jump_state = JumpStates.NONE
 				sprite.position.y = 0
 				jump_speed = 0
+				$jump_timer.start(.2)
 				
 				
 		JumpStates.NONE:
-			if Input.is_action_pressed("jump"):
+			if Input.is_action_pressed("jump") and can_jump():
 				# start jump
 				jump_speed = 15
 				jump_state = JumpStates.JUMPING_UP
@@ -127,6 +128,13 @@ func handle_jump_state():
 	
 	# return true if the character is jumping, or false if on ground
 	return is_jumping()
+
+func can_jump():
+	print($jump_timer.time_left)
+	if !is_jumping() and !$jump_timer.time_left > 0:
+		return true
+	
+	return false
 
 func win():
 	print('i won')
