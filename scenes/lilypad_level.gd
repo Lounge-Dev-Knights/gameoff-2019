@@ -25,9 +25,6 @@ func reset():
 	gameover = false
 	$character.reset()
 	$character.alive = true
-	# todo exit lilypad before reset
-	$character.position.x = 150
-	$character.position.y = 280
 	$character.set_collision_mask_bit(10, false)
 
 # Called when the node enters the scene tree for the first time.
@@ -55,11 +52,13 @@ func gameover():
 	gameover = true
 	$character.alive = false
 	
+	# todo exit lilypad before reset
+	$character.position.x = 150
+	$character.position.y = 280
+	
 	print("gameover")
 
 
 func _on_Button_pressed():
 	reset()
 	pass # Replace with function body.
-
-		
