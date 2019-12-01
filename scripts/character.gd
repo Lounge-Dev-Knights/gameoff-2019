@@ -64,6 +64,10 @@ func _physics_process(delta):
 		movement_direction.x += 1
 	if Input.is_key_pressed(KEY_ESCAPE):
 		get_tree().change_scene("res://scenes/MainMenu.tscn")
+	if Input.is_key_pressed(KEY_R):
+		#$ribbitSound.play()
+		print_debug("R pressed")
+		
 	if movement_direction.x > 0:
 		$sprite.flip_h = false
 	elif movement_direction.x < 0:
