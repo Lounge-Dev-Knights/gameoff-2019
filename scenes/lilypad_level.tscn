@@ -8,7 +8,7 @@
 [ext_resource path="res://scenes/fish.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1000, 300 )
+extents = Vector2( 3941.18, 300 )
 
 [node name="LilypadLevel" type="Node2D"]
 script = ExtResource( 1 )
@@ -19,12 +19,12 @@ collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Polygon2D" type="Polygon2D" parent="water"]
-position = Vector2( 1000, 300 )
+position = Vector2( 1006.82, 297.728 )
 color = Color( 0.145098, 0.0509804, 0.596078, 1 )
-polygon = PoolVector2Array( -1345.33, -770.708, -1413.82, 753.324, 750.646, 835.519, 849.965, -770.708 )
+polygon = PoolVector2Array( -1345.33, -770.708, -1413.82, 753.324, 4483.38, 711.867, 4413.5, -779.014 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="water"]
-position = Vector2( 973.937, 326.595 )
+position = Vector2( 3929.04, 292.443 )
 shape = SubResource( 1 )
 
 [node name="character" parent="." instance=ExtResource( 3 )]
@@ -88,15 +88,137 @@ position = Vector2( 593.292, 208.293 )
 position = Vector2( 630.11, 332.187 )
 
 [node name="lilipad12" parent="Lillipads" instance=ExtResource( 4 )]
-position = Vector2( 737.641, 354.492 )
+position = Vector2( 763.957, 378.703 )
 
 [node name="lilipad14" parent="Lillipads" instance=ExtResource( 4 )]
-position = Vector2( 927.57, 223.098 )
+position = Vector2( 909.193, 311.309 )
+scale = Vector2( 1.6, 1.6 )
 
 [node name="lilipad2" parent="Lillipads" instance=ExtResource( 5 )]
 position = Vector2( 291.582, 188.356 )
 
+[node name="lilipad33" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 2557.64, 429.774 )
+
+[node name="lilipad6" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 4521.63, 287.006 )
+scale = Vector2( 5, 5 )
+
+[node name="lilipad34" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 6787.69, 528.424 )
+scale = Vector2( 5, 5 )
+
+[node name="lilipad8" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 1115.06, 241.946 )
+
+[node name="lilipad36" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 3205, 367.536 )
+
+[node name="lilipad13" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 1518.83, 262.95 )
+
+[node name="lilipad35" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 3045.5, 517.062 )
+scale = Vector2( 2, 2 )
+
+[node name="lilipad15" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 1320.94, 180.705 )
+
+[node name="lilipad25" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 1697.43, 436.113 )
+
+[node name="lilipad16" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 1922.05, 492.99 )
+
+[node name="lilipad37" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 2789.22, 398.648 )
+
+[node name="lilipad17" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 2057.74, 359.877 )
+
+[node name="lilipad38" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 3101.04, 267.122 )
+
+[node name="lilipad18" parent="Lillipads" instance=ExtResource( 4 )]
+position = Vector2( 1204.17, 314.124 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="lilipad23" parent="Lillipads" instance=ExtResource( 4 )]
+position = Vector2( 1214.46, 371.569 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="lilipad19" parent="Lillipads" instance=ExtResource( 4 )]
+position = Vector2( 1764.08, 508.695 )
+
+[node name="lilipad20" parent="Lillipads" instance=ExtResource( 4 )]
+position = Vector2( 1324.15, 517.608 )
+scale = Vector2( 2, 2 )
+
+[node name="lilipad21" parent="Lillipads" instance=ExtResource( 4 )]
+position = Vector2( 1514.85, 540.164 )
+
+[node name="lilipad22" parent="Lillipads" instance=ExtResource( 4 )]
+position = Vector2( 1569.93, 368.238 )
+
+[node name="lilipad26" parent="Lillipads" instance=ExtResource( 4 )]
+position = Vector2( 1996.34, 428.911 )
+
+[node name="lilipad32" parent="Lillipads" instance=ExtResource( 4 )]
+position = Vector2( 2480.63, 509.174 )
+
+[node name="lilipad27" parent="Lillipads" instance=ExtResource( 4 )]
+position = Vector2( 2236.38, 385.705 )
+
+[node name="lilipad31" parent="Lillipads" instance=ExtResource( 4 )]
+position = Vector2( 2719.09, 464.381 )
+
+[node name="lilipad39" parent="Lillipads" instance=ExtResource( 4 )]
+position = Vector2( 3047.53, 413.607 )
+
+[node name="lilipad24" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 1152.32, 445.978 )
+
+[node name="lilipad29" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 1636.61, 526.241 )
+
+[node name="lilipad28" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 2341.61, 452.008 )
+
+[node name="lilipad30" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 2825.91, 532.27 )
+
+[node name="lilipad40" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 3545.12, 341.341 )
+
+[node name="lilipad41" parent="Lillipads" instance=ExtResource( 4 )]
+position = Vector2( 3055.26, 191.335 )
+
+[node name="lilipad42" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 3213.93, 132.628 )
+
+[node name="lilipad43" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 3421.79, 248.455 )
+
+[node name="lilipad44" parent="Lillipads" instance=ExtResource( 4 )]
+position = Vector2( 3372.6, 151.668 )
+
+[node name="lilipad45" parent="Lillipads" instance=ExtResource( 4 )]
+position = Vector2( 3675.75, 281.101 )
+
+[node name="lilipad46" parent="Lillipads" instance=ExtResource( 4 )]
+position = Vector2( 3658.65, 418.852 )
+
+[node name="lilipad47" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 3833.45, 340.001 )
+
+[node name="lilipad48" parent="Lillipads" instance=ExtResource( 5 )]
+position = Vector2( 4137.45, 406.501 )
+
+[node name="lilipad49" parent="Lillipads" instance=ExtResource( 4 )]
+position = Vector2( 3999.7, 329.551 )
+
 [node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 4, 0 )
 
 [node name="fish" parent="Node2D" instance=ExtResource( 6 )]
 position = Vector2( 132.142, 105.321 )
@@ -107,7 +229,7 @@ position = Vector2( 460.262, 387.429 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="fish5" parent="Node2D" instance=ExtResource( 6 )]
-position = Vector2( 936.833, 219.903 )
+position = Vector2( 906.694, 308.849 )
 scale = Vector2( 0.7, 0.7 )
 
 [node name="fish3" parent="Node2D" instance=ExtResource( 6 )]
@@ -120,6 +242,32 @@ scale = Vector2( -0.5, 0.5 )
 
 [node name="fish7" parent="Node2D" instance=ExtResource( 6 )]
 position = Vector2( 634.146, 330.807 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="fish2" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 1524.18, 257.617 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="fish8" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 1314.74, 513.072 )
+
+[node name="fish9" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 1695.55, 427.391 )
+scale = Vector2( -1, 1 )
+
+[node name="fish10" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 1203.72, 313.549 )
+scale = Vector2( -0.3, 0.3 )
+
+[node name="fish11" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 1918, 489.001 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="fish12" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 3040.94, 519.081 )
+
+[node name="fish13" parent="Node2D" instance=ExtResource( 6 )]
+position = Vector2( 2786.3, 399.905 )
 scale = Vector2( 0.5, 0.5 )
 [connection signal="body_entered" from="water" to="." method="_on_water_body_entered"]
 [connection signal="body_exited" from="water" to="." method="_on_water_body_exited"]
