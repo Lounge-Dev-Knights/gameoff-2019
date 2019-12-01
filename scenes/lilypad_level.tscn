@@ -43,24 +43,26 @@ drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 
 [node name="Panel" type="Panel" parent="character/Camera2D"]
-visible = false
-margin_left = -100.0
-margin_top = -50.0
-margin_right = 100.0
-margin_bottom = 50.0
+margin_left = -277.866
+margin_top = -127.907
+margin_right = 22.134
+margin_bottom = 22.0934
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 2, 2 )
 
 [node name="GameOverLabel" type="Label" parent="character/Camera2D/Panel"]
-margin_left = 58.3005
-margin_top = 19.015
-margin_right = 134.301
-margin_bottom = 33.015
+margin_left = 103.458
+margin_top = 36.5761
+margin_right = 179.458
+margin_bottom = 50.5761
 text = "GAME OVER"
 
 [node name="Button" type="Button" parent="character/Camera2D/Panel"]
-margin_left = 59.286
-margin_top = 44.5628
-margin_right = 135.286
-margin_bottom = 84.5628
+margin_left = 103.607
+margin_top = 75.5038
+margin_right = 179.607
+margin_bottom = 115.504
 text = "retry"
 
 [node name="Timer" type="Timer" parent="."]
@@ -94,7 +96,7 @@ position = Vector2( 593.292, 208.293 )
 position = Vector2( 630.11, 332.187 )
 
 [node name="lilipad12" parent="Lillipads" instance=ExtResource( 4 )]
-position = Vector2( 737.641, 354.492 )
+position = Vector2( 778.156, 316.432 )
 
 [node name="lilipad14" parent="Lillipads" instance=ExtResource( 4 )]
 position = Vector2( 927.57, 223.098 )
@@ -325,7 +327,7 @@ scale = Vector2( 0.5, 0.5 )
 stream = SubResource( 2 )
 
 [node name="borders_top" type="Node2D" parent="."]
-position = Vector2( 9.27264, 46.3632 )
+position = Vector2( -278.421, 46.3632 )
 z_index = -1
 
 [node name="border1" type="Sprite" parent="borders_top"]
@@ -348,8 +350,13 @@ position = Vector2( 1604.19, 37.3942 )
 scale = Vector2( 0.623858, 0.583578 )
 texture = ExtResource( 7 )
 
+[node name="border5" type="Sprite" parent="borders_top"]
+position = Vector2( 6056.81, 46.2463 )
+scale = Vector2( 0.623858, 0.583578 )
+texture = ExtResource( 7 )
+
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2( -341.915, 70.3943 )
+position = Vector2( -625.183, 74.8203 )
 scale = Vector2( 0.6, 0.6 )
 z_index = 13
 
