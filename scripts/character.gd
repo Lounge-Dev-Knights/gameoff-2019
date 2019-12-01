@@ -54,19 +54,25 @@ func _physics_process(delta):
 	# evaluate and apply movement direction
 	var movement_direction = Vector2()
 	
-	if Input.is_action_pressed("move_down"):
-		movement_direction.y += 1
-	if Input.is_action_pressed("move_up"):
-		movement_direction.y -= 1
-	if Input.is_action_pressed("move_left"):
-		movement_direction.x -= 1
-	if Input.is_action_pressed("move_right"):
-		movement_direction.x += 1
-	if Input.is_key_pressed(KEY_ESCAPE):
-		get_tree().change_scene("res://scenes/MainMenu.tscn")
-	if Input.is_key_pressed(KEY_R):
-		#$ribbitSound.play()
-		$ribbitSound.play()
+	if Input.is_mouse_button_pressed(1):
+		movement_direction = get_local_mouse_position()
+	else:
+		if Input.is_action_pressed("move_down"):
+			movement_direction.y += 1
+		if Input.is_action_pressed("move_up"):
+			movement_direction.y -= 1
+		if Input.is_action_pressed("move_left"):
+			movement_direction.x -= 1
+		if Input.is_action_pressed("move_right"):
+			movement_direction.x += 1
+		if Input.is_key_pressed(KEY_ESCAPE):
+			get_tree().change_scene("res://scenes/MainMenu.tscn")
+		if Input.is_key_pressed(KEY_R):
+			#$ribbitSound.play()
+			$ribbitSound.play()
+		
+	
+		#print(get_viewport().get_mouse_position() - position)
 		
 	if movement_direction.x > 0:
 		$sprite.flip_h = false
