@@ -12,6 +12,9 @@ func _process(delta):
 	else:
 		$character/Camera2D/Panel.visible = true
 	
+	
+	if Input.is_action_pressed("ui_accept") and gameover:
+		reset()
 
 
 # Declare member variables here. Examples:
@@ -58,3 +61,5 @@ func gameover():
 func _on_Button_pressed():
 	reset()
 	pass # Replace with function body.
+
+		
