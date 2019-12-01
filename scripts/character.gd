@@ -62,7 +62,8 @@ func _physics_process(delta):
 		movement_direction.x -= 1
 	if Input.is_action_pressed("move_right"):
 		movement_direction.x += 1
-		
+	if Input.is_key_pressed(KEY_ESCAPE):
+		get_tree().change_scene("res://scenes/MainMenu.tscn")
 	if movement_direction.x > 0:
 		$sprite.flip_h = false
 	elif movement_direction.x < 0:

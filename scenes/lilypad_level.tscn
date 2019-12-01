@@ -19,7 +19,7 @@ collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Polygon2D" type="Polygon2D" parent="water"]
-position = Vector2( 1000, 300 )
+position = Vector2( 1236, 51 )
 color = Color( 0.145098, 0.0509804, 0.596078, 1 )
 polygon = PoolVector2Array( -1345.33, -770.708, -1413.82, 753.324, 750.646, 835.519, 849.965, -770.708 )
 
@@ -33,7 +33,7 @@ position = Vector2( 148.358, 267.45 )
 [node name="Camera2D" type="Camera2D" parent="character"]
 scale = Vector2( 0.5, 0.5 )
 current = true
-zoom = Vector2( 0.3, 0.3 )
+zoom = Vector2( 0.7, 0.7 )
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 
@@ -61,6 +61,7 @@ text = "retry"
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Lillipads" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="lilipad" parent="Lillipads" instance=ExtResource( 4 )]
 position = Vector2( 131.839, 104.041 )
@@ -96,29 +97,30 @@ position = Vector2( 927.57, 223.098 )
 [node name="lilipad2" parent="Lillipads" instance=ExtResource( 5 )]
 position = Vector2( 291.582, 188.356 )
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="fishNodes" type="Node2D" parent="."]
+editor/display_folded = true
 
-[node name="fish" parent="Node2D" instance=ExtResource( 6 )]
+[node name="fish" parent="fishNodes" instance=ExtResource( 6 )]
 position = Vector2( 132.142, 105.321 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="fish6" parent="Node2D" instance=ExtResource( 6 )]
+[node name="fish6" parent="fishNodes" instance=ExtResource( 6 )]
 position = Vector2( 460.262, 387.429 )
 scale = Vector2( 0.7, 0.7 )
 
-[node name="fish5" parent="Node2D" instance=ExtResource( 6 )]
+[node name="fish5" parent="fishNodes" instance=ExtResource( 6 )]
 position = Vector2( 936.833, 219.903 )
 scale = Vector2( 0.7, 0.7 )
 
-[node name="fish3" parent="Node2D" instance=ExtResource( 6 )]
+[node name="fish3" parent="fishNodes" instance=ExtResource( 6 )]
 position = Vector2( 474.981, 159.811 )
 scale = Vector2( 0.5, 0.5 )
 
-[node name="fish4" parent="Node2D" instance=ExtResource( 6 )]
+[node name="fish4" parent="fishNodes" instance=ExtResource( 6 )]
 position = Vector2( 291.492, 183.066 )
 scale = Vector2( -0.5, 0.5 )
 
-[node name="fish7" parent="Node2D" instance=ExtResource( 6 )]
+[node name="fish7" parent="fishNodes" instance=ExtResource( 6 )]
 position = Vector2( 634.146, 330.807 )
 scale = Vector2( 0.5, 0.5 )
 [connection signal="body_entered" from="water" to="." method="_on_water_body_entered"]
