@@ -21,7 +21,7 @@ script = ExtResource( 2 )
 [node name="Polygon2D" type="Polygon2D" parent="water"]
 position = Vector2( 1010.24, 301.153 )
 color = Color( 0.145098, 0.0509804, 0.596078, 1 )
-polygon = PoolVector2Array( -2055.91, -741.176, -1874.39, 911.578, 4879.93, 844.704, 4583.77, -874.925 )
+polygon = PoolVector2Array( -2103.68, -960.906, -2046.36, -932.246, -1874.39, 911.578, 4879.93, 844.704, 4583.77, -874.925 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="water"]
 position = Vector2( 3929.04, 292.443 )
