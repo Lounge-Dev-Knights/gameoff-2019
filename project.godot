@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="gameoff-2019"
-run/main_scene="res://scenes/demolevel.tscn"
+run/main_scene="res://scenes/lilypad_level.tscn"
 config/icon="res://assets/icon.png"
 
 [input]
