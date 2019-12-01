@@ -25,7 +25,7 @@ func _physics_process(delta):
 	else:
 		visible = true
 		var unit_offset = fmod($Path2D/PathFollow2D.unit_offset, 1)
-		print(unit_offset)
+		
 		if unit_offset > .14 && unit_offset < .18:
 			$Path2D/PathFollow2D/sprite.play("hit_ground")
 			$Path2D/PathFollow2D/Area2D/CollisionPolygon2D.disabled = false
