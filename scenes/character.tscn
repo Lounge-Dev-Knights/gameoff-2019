@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/character.gd" type="Script" id=1]
 [ext_resource path="res://assets/1.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/4.png" type="Texture" id=4]
 [ext_resource path="res://assets/2.png" type="Texture" id=5]
 [ext_resource path="res://assets/3.png" type="Texture" id=6]
+[ext_resource path="res://assets/ribbitSoundwav.wav" type="AudioStream" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,14 +20,14 @@ animations = [ {
 "name": "jump_down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "jump_up",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "jump_up",
 "speed": 5.0
 } ]
 
@@ -46,3 +47,6 @@ polygon = PoolVector2Array( -17.3922, 12.4487, -13.3301, 7.81973, -3.3164, 6.591
 
 [node name="jump_timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="ribbitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )

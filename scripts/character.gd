@@ -66,7 +66,7 @@ func _physics_process(delta):
 		get_tree().change_scene("res://scenes/MainMenu.tscn")
 	if Input.is_key_pressed(KEY_R):
 		#$ribbitSound.play()
-		print_debug("R pressed")
+		$ribbitSound.play()
 		
 	if movement_direction.x > 0:
 		$sprite.flip_h = false
@@ -122,6 +122,7 @@ func handle_jump_state():
 				
 		JumpStates.NONE:
 			if Input.is_action_pressed("jump") and can_jump():
+				$ribbitSound.play()
 				# start jump
 				jump_speed = 15
 				jump_state = JumpStates.JUMPING_UP
