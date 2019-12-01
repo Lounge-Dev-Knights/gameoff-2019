@@ -21,6 +21,8 @@ func _process(delta):
 # var b = "text"
 
 func reset():
+	
+	$character/Camera2D/won.visible = false
 
 	gameover = false
 	$character.reset()
@@ -61,4 +63,12 @@ func gameover():
 
 func _on_Button_pressed():
 	reset()
+	pass # Replace with function body.
+
+
+func _on_sword_body_entered(body):
+	$character/Camera2D/won.visible = true
+	$character.position.x = 150
+	$character.position.y = 280
+	print('won')
 	pass # Replace with function body.
