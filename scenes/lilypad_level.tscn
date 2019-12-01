@@ -11,7 +11,7 @@
 [ext_resource path="res://assets/border1.png" type="Texture" id=9]
 [ext_resource path="res://assets/border2.png" type="Texture" id=10]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 3057.68, 842.972 )
 
 [sub_resource type="AudioStreamSample" id=2]
@@ -32,7 +32,7 @@ polygon = PoolVector2Array( -2103.68, -960.906, -2046.36, -932.246, -1874.39, 91
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="water"]
 position = Vector2( 2349.04, 301.052 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="character" parent="." instance=ExtResource( 3 )]
 position = Vector2( 148.358, 267.45 )
@@ -55,17 +55,17 @@ grow_vertical = 2
 rect_scale = Vector2( 2, 2 )
 
 [node name="GameOverLabel" type="Label" parent="character/Camera2D/Panel"]
-margin_left = 103.458
-margin_top = 36.5761
-margin_right = 179.458
-margin_bottom = 50.5761
+margin_left = 58.3005
+margin_top = 19.015
+margin_right = 134.301
+margin_bottom = 33.015
 text = "GAME OVER"
 
 [node name="Button" type="Button" parent="character/Camera2D/Panel"]
-margin_left = 103.607
-margin_top = 75.5038
-margin_right = 179.607
-margin_bottom = 115.504
+margin_left = 59.286
+margin_top = 44.5628
+margin_right = 135.286
+margin_bottom = 84.5628
 text = "retry"
 
 [node name="won" type="Panel" parent="character/Camera2D"]
@@ -122,7 +122,7 @@ position = Vector2( 593.292, 208.293 )
 position = Vector2( 630.11, 332.187 )
 
 [node name="lilipad12" parent="Lillipads" instance=ExtResource( 4 )]
-position = Vector2( 778.156, 316.432 )
+position = Vector2( 737.641, 354.492 )
 
 [node name="lilipad14" parent="Lillipads" instance=ExtResource( 4 )]
 position = Vector2( 927.57, 223.098 )
@@ -366,7 +366,7 @@ scale = Vector2( 0.5, 0.5 )
 stream = SubResource( 2 )
 
 [node name="borders_top" type="Node2D" parent="."]
-position = Vector2( -278.421, 46.3632 )
+position = Vector2( 9.27264, 46.3632 )
 z_index = -1
 
 [node name="border1" type="Sprite" parent="borders_top"]
@@ -395,7 +395,7 @@ scale = Vector2( 0.623858, 0.583578 )
 texture = ExtResource( 9 )
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2( -625.183, 74.8203 )
+position = Vector2( -341.915, 70.3943 )
 scale = Vector2( 0.6, 0.6 )
 z_index = 13
 
