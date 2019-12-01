@@ -24,12 +24,13 @@ func _physics_process(delta):
 		visible = false;
 	else:
 		visible = true
-		
-		if $Path2D/PathFollow2D.position.y < -120:
-			$Path2D/PathFollow2D/sprite.play("jump")
-		else:
+		var unit_offset = fmod($Path2D/PathFollow2D.unit_offset, 1)
+		print(unit_offset)
+		if unit_offset > .14 && unit_offset < .18:
 			$Path2D/PathFollow2D/sprite.play("hit_ground")
 			$Path2D/PathFollow2D/Area2D/CollisionPolygon2D.disabled = false
+		else:
+			$Path2D/PathFollow2D/sprite.play("jump")
 	pass
 	
 	
