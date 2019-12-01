@@ -1,15 +1,17 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/LilipadLevelBackground.png" type="Texture" id=1]
-[ext_resource path="res://assets/characters.png" type="Texture" id=2]
-[ext_resource path="res://assets/label_newgame.png" type="Texture" id=3]
-[ext_resource path="res://scenes/NewGameButton.gd" type="Script" id=4]
-[ext_resource path="res://assets/label_continue.png" type="Texture" id=5]
-[ext_resource path="res://assets/label_options.png" type="Texture" id=6]
-[ext_resource path="res://assets/label_version.png" type="Texture" id=7]
-[ext_resource path="res://assets/TitlePic.png" type="Texture" id=8]
-[ext_resource path="res://scenes/Popup.gd" type="Script" id=9]
-[ext_resource path="res://assets/5.png" type="Texture" id=10]
+[ext_resource path="res://assets/label_newgame.png" type="Texture" id=2]
+[ext_resource path="res://scenes/NewGameButton.gd" type="Script" id=3]
+[ext_resource path="res://assets/label_continue.png" type="Texture" id=4]
+[ext_resource path="res://assets/label_options.png" type="Texture" id=5]
+[ext_resource path="res://assets/label_version.png" type="Texture" id=6]
+[ext_resource path="res://assets/TitlePic.png" type="Texture" id=7]
+[ext_resource path="res://scenes/Popup.gd" type="Script" id=8]
+[ext_resource path="res://assets/5.png" type="Texture" id=9]
+[ext_resource path="res://assets/backButtonInvisblue.png" type="Texture" id=10]
+[ext_resource path="res://assets/backButtonInvisbluePressed.png" type="Texture" id=11]
+[ext_resource path="res://scenes/BackButton.gd" type="Script" id=12]
 
 [node name="MarginContainer" type="MarginContainer"]
 margin_left = 1.0
@@ -27,23 +29,16 @@ texture = ExtResource( 1 )
 stretch_mode = 4
 
 [node name="MenuHBoxContainer" type="HBoxContainer" parent="."]
-editor/display_folded = true
 margin_right = 1024.0
 margin_bottom = 600.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuHBoxContainer"]
+margin_left = 30.0
 margin_right = 322.0
 margin_bottom = 600.0
 
-[node name="characters" type="TextureRect" parent="MenuHBoxContainer/VBoxContainer"]
-margin_right = 277.0
-margin_bottom = 112.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource( 2 )
-
 [node name="MenuOptions" type="VBoxContainer" parent="MenuHBoxContainer/VBoxContainer"]
-margin_top = 116.0
+editor/display_folded = true
 margin_right = 322.0
 margin_bottom = 512.0
 size_flags_vertical = 3
@@ -51,33 +46,33 @@ custom_constants/separation = 30
 alignment = 1
 
 [node name="newgame" type="TextureRect" parent="MenuHBoxContainer/VBoxContainer/MenuOptions"]
-margin_top = 119.0
+margin_top = 178.0
 margin_right = 146.0
-margin_bottom = 149.0
+margin_bottom = 208.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="newGameButton" type="ToolButton" parent="MenuHBoxContainer/VBoxContainer/MenuOptions/newgame"]
 margin_right = 297.0
 margin_bottom = 31.0
-script = ExtResource( 4 )
+script = ExtResource( 3 )
 
 [node name="continue" type="TextureRect" parent="MenuHBoxContainer/VBoxContainer/MenuOptions"]
-margin_top = 179.0
+margin_top = 238.0
 margin_right = 322.0
-margin_bottom = 211.0
-texture = ExtResource( 5 )
+margin_bottom = 268.0
+texture = ExtResource( 4 )
 
 [node name="continueButton" type="ToolButton" parent="MenuHBoxContainer/VBoxContainer/MenuOptions/continue"]
 margin_right = 312.0
 margin_bottom = 33.0
 
 [node name="options" type="TextureRect" parent="MenuHBoxContainer/VBoxContainer/MenuOptions"]
-margin_top = 241.0
+margin_top = 298.0
 margin_right = 322.0
-margin_bottom = 276.0
-texture = ExtResource( 6 )
+margin_bottom = 333.0
+texture = ExtResource( 5 )
 
 [node name="ToolButton" type="ToolButton" parent="MenuHBoxContainer/VBoxContainer/MenuOptions/options"]
 margin_right = 299.0
@@ -87,7 +82,7 @@ margin_bottom = 50.0
 margin_top = 516.0
 margin_right = 322.0
 margin_bottom = 600.0
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 
 [node name="CenterContainer" type="CenterContainer" parent="MenuHBoxContainer"]
 margin_left = 326.0
@@ -101,13 +96,12 @@ margin_left = 154.0
 margin_top = 248.0
 margin_right = 543.0
 margin_bottom = 352.0
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 
 [node name="Popup" type="Popup" parent="."]
-visible = true
 margin_right = 1024.0
 margin_bottom = 600.0
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 
 [node name="CenterContainer" type="CenterContainer" parent="Popup"]
 margin_right = 1024.0
@@ -119,26 +113,35 @@ margin_bottom = 600.0
 rect_min_size = Vector2( 1024, 600 )
 color = Color( 0.403922, 0.403922, 0.403922, 0.729412 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Popup/CenterContainer/ColorRect"]
-margin_right = 1024.0
-margin_bottom = 600.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup/CenterContainer"]
+margin_left = 412.0
+margin_top = 183.0
+margin_right = 612.0
+margin_bottom = 417.0
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Popup/CenterContainer/ColorRect/VBoxContainer"]
-margin_top = 218.0
-margin_right = 1024.0
-margin_bottom = 347.0
-texture = ExtResource( 10 )
+[node name="TextureRect" type="TextureRect" parent="Popup/CenterContainer/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 129.0
+texture = ExtResource( 9 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Popup/CenterContainer/ColorRect/VBoxContainer"]
-margin_top = 351.0
-margin_right = 1024.0
-margin_bottom = 381.0
+[node name="RichTextLabel" type="RichTextLabel" parent="Popup/CenterContainer/VBoxContainer"]
+margin_top = 133.0
+margin_right = 200.0
+margin_bottom = 163.0
 rect_min_size = Vector2( 200, 30 )
 text = "Ribbit
 "
+
+[node name="BackButton" type="TextureButton" parent="Popup/CenterContainer/VBoxContainer"]
+margin_top = 167.0
+margin_right = 200.0
+margin_bottom = 234.0
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+script = ExtResource( 12 )
 [connection signal="pressed" from="MenuHBoxContainer/VBoxContainer/MenuOptions/newgame/newGameButton" to="MenuHBoxContainer/VBoxContainer/MenuOptions/newgame/newGameButton" method="_on_ToolButton_pressed"]
-[connection signal="pressed" from="MenuHBoxContainer/VBoxContainer/MenuOptions/continue/continueButton" to="Popup" method="_on_ToolButton_pressed"]
 [connection signal="pressed" from="MenuHBoxContainer/VBoxContainer/MenuOptions/options/ToolButton" to="Popup" method="_on_ToolButton_pressed"]
 [connection signal="popup_hide" from="Popup" to="Popup" method="_on_Popup_popup_hide"]
 [connection signal="mouse_exited" from="Popup/CenterContainer/ColorRect" to="Popup" method="_on_ColorRect_mouse_exited"]
+[connection signal="pressed" from="Popup/CenterContainer/VBoxContainer/BackButton" to="Popup/CenterContainer/VBoxContainer/BackButton" method="_on_BackButton_pressed"]
